@@ -18,8 +18,8 @@ class WindowClass:
         panel = wx.Panel(self.frame)
 
         my_sizer = wx.BoxSizer(wx.VERTICAL)
-        anim = Animation("C:/Users/ernes/Desktop/programming/Edith/mic recording.gif")
-        ctrl = AnimationCtrl(panel, wx.ID_ANY, anim, pos=(50,70))
+        anim = Animation("mic_recording.gif")
+        ctrl = AnimationCtrl(panel, wx.ID_ANY, anim)
         ctrl.Play()
         
         my_sizer.Add(ctrl, 0, wx.ALL | wx.CENTER, 5)
