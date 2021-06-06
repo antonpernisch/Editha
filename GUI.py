@@ -4,6 +4,8 @@ from wx.adv import Animation, AnimationCtrl
 class WindowClass:
 
     def __init__(self, parent, title):
+        from Main import Main
+        self.recognizer = Main()
         self.speaking = False #flags 
         self.frame = wx.Frame(parent, title = title, size = (800,600), style = wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER ^ wx.MAXIMIZE_BOX)
         self.frame.Bind(wx.EVT_CLOSE, self.Quit, self.frame)
@@ -37,11 +39,5 @@ class WindowClass:
         else:
             self.confButton.SetLabel("Listening")
             self.gif.Play()
+            self.recognizer.listen()
         self.speaking = not self.speaking
-
-def main():
-    app = wx.App()
-    WindowClass(None, title='Edith')
-    app.MainLoop()
-
-main()
